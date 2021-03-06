@@ -1,0 +1,206 @@
+<!--
+Copyright 2014 - 2017 Cognizant Technology Solutions
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Options</title>
+    <link rel="shortcut icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- site css -->
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body style="background-color: #f1f2f6;">
+    <div class="docs-header">
+        <nav class="navbar navbar-default navbar-custom" style="min-width: 550px;">
+            <div class="container">
+                <div class="navbar-header" style="float: left;">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="img/logo.png" alt="Home" height="40">
+                    </a>
+                </div>
+                <div class="">
+                    <ul class="nav navbar-nav navbar-right" style="margin-left: 50px;">
+                        <li style="float: left;"><a class="nav-link current" href="#config">Configurations</a></li>
+                     <!--  <li style="float: left;"><a class="nav-link" href="#help">Need Help?</a></li> -->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" style="float: right;">
+                        <li style="float: left;"><a class="saveAll" style="cursor: pointer;">Save</a></li>
+                        <li style="float: left;"><a class="resetAll" style="cursor: pointer;">Reset</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="popup" style="display: none;position: fixed;margin-left: 37%;margin-top: 13%;font-size: 26px;color: #868686;font-weight: 600;">
+        <p>Data Saved Successfully!</p>
+    </div>
+    <div id="config">
+        <div class="container host_uri">
+            <div class="modal-header" style="padding-left: 0px;">
+                <h4 class="modal-title">Socket URI</h4>
+            </div>
+            <div style="display: inline-block;">
+                <label>Host : </label>
+                <input type="text" class="form-control" id="socketHost" placeholder="Host Name" style="margin-right: 40px;width: 200px;">
+            </div>
+            <div style="display: inline-block;">
+                <label>Port : </label>
+                <input type="number" class="form-control stepper-input" id="socketPort" placeholder="Port Number" style="width: 200px;">
+            </div>
+            <button type="button" class="btn btn-test">Test Connection</button>
+            <a class="connectionStatus" href="">
+                <img class="connectionTest" style="padding-left: 15px;padding-bottom: 5px;" />
+            </a>
+        </div>
+
+        <div class="container body_section">
+            <div class="modal-header" style="padding-left: 0px;display: block;padding-bottom: 20px;">
+                <h4 class="modal-title">Spy highlight colours</h4>
+            </div>
+            <div>
+                <label>Set Border colour : </label><input type="color" style="height: 30px; font-size: 30px; " id="highlightcolor">
+            </div>
+            <div style="margin-right: 100px;">
+                <label>Set Background colour : </label><input type="color" style="height: 30px; font-size: 30px; " id="highlightcolorBg">
+            </div>
+            <div style="margin-right: 0px;">
+                <label class="example_box" style="vertical-align: middle;width: 200px;height: 28px;outline-style: solid;outline-width: 2px;"></label>
+            </div>
+        </div>
+
+        <!--*********************Native Object Properties**************************-->
+
+        <div class="container objects">
+            <div class="modal-header" style="padding-left: 0px;">
+                <h4 class="modal-title">Object Properties</h4>
+            </div>
+            <div class="object_list">
+                <span style="margin-right: 30px;">Select the Object properties that you wish to capture from the web page.</span>
+                <div style="display: block;width: 90%;margin-top: 15px;color: #424242;" class="native_object_list">
+
+                </div>
+            </div>
+        </div>
+
+        <!--*********************User defined Object Properties**********************-->
+
+        <div class="container UserObjects">
+            <div class="modal-header" style="padding-left: 0px;">
+                <h4 class="modal-title">User Defined Object Properties</h4>
+            </div>
+            <div class="object_list">
+                <span style="margin-right: 30px;">Add the Object properties that you wish to capture from the web page.</span>
+                <div style="display: block;width: 90%;margin-top: 15px;color: #424242;" class="all_object_list">
+                    <!--Object list is getting displayed here-->
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container rel_xpath">
+            <div class="modal-header" style="padding-left: 0px;">
+                <h4 class="modal-title">Relative Xpath Priority</h4>
+            </div>
+            <div class="panel panel-default accordion">
+                <label id="moveUp" class="btn btn-updown btn-block">Move Up</label>
+                <label id="moveDown" class="btn btn-updown btn-block">Move Down</label>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Property Name</th>
+                            <th>Value format</th>
+                        </tr>
+                    </thead>
+                    <tbody class="xPathTr">
+                        <!--*code for Xpath Priority table-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="help" class="container">
+        <div class="modal-header" style="padding-left: 0px;">
+            <h4 class="modal-title">Adding Cognizant Intelligent Test Scripter Certificate to browsers</h4>
+        </div>
+        <div class="modal-header" style="padding-left: 0px;">
+            <h5 class="modal-title" style="font-size: 16px;margin-left: 14px;">Chrome Web browser</h5>
+        </div>
+        <div class="panel panel-default">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    From the location of the installation file, open the Extensions folder
+                </li>
+                <li class="list-group-item">
+                    Launch the Ext_Certificate.cert file. The Certificate window is displayed
+                </li>
+                <li class="list-group-item">
+                    To install the Certificate, perform the following steps in the Certificate window that is displayed:
+                    <p style="margin: 5px 25px 0px;">Click the button<br/> Click the Next button and select Place all certificates in the following store.<br/>                        Browse and select Trusted Root Certification Authorities<br/> Click the Next button followed by Finish.
+                </li>
+            </ul>
+        </div>
+        <div class="modal-header" style="padding-left: 0px;">
+            <h5 class="modal-title" style="font-size: 16px;margin-left: 14px;">Mozilla Firefox Web browser</h5>
+        </div>
+        <div class="panel panel-default">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    Launch Cognizant Intelligent Test Scripter application
+                </li>
+                <li class="list-group-item">
+                    Launch one of the following options(Mandatory):
+                    <p style="margin: 5px 25px 0px;">
+                        Object Spy<br/> Object Heal<br/> Recorder
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    Launch Firefox browser
+                </li>
+                <li class="list-group-item">
+                    Navigate to Options > Advanced > Certificates
+                </li>
+                <li class="list-group-item">
+                    Select the option Select one automatically
+                </li>
+                <li class="list-group-item">
+                    Click View Certificate, navigate to Servers and click Add exception. The Add Security Exception window is displayed
+                </li>
+                <li class="list-group-item">
+                    In the Location field of the Add Security Exception window, type the URL: https://localhost:8887
+                </li>
+                <li class="list-group-item">
+                    Click Get Certificate and Confirm Security Exception
+                </li>
+                <li class="list-group-item">
+                    In case of any challenges in adding the security certificate, ensure to perform the following steps:
+                    <p style="margin: 5px 25px 0px;">
+                        Open Internet Options<br/> Navigate to Connections>Lan Settings>Advanced<br/> In the exceptions area
+                        add localhost<br/> Save the settings and again try to add certificate
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
