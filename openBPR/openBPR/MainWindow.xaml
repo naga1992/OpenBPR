@@ -1,0 +1,60 @@
+﻿<mah:MetroWindow x:Class="openBPR.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:openBPR"
+        mc:Ignorable="d"
+        Title="OpenBPR" Height="450" Width="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,5" Grid.Column="1">
+            <Button Content="Start Recording" x:Name="btn_Record" Click="btn_Record_Click"/>
+            <Button Content="Stop Recording" x:Name="btn_Stop" Click="btn_Stop_Click"/>
+            <Button Content="Export as taskt" x:Name="btn_export_word" Click="btn_export_Click"/>
+            <!--<Button Content="Run All Steps" x:Name="btn_Run" Click="btn_Run_Click"/>-->
+        </StackPanel>
+
+        <TabControl Grid.Row="1" Grid.Column="1" Margin="0,32,0,0" Grid.RowSpan="3">
+            <TabControl.Items>
+                <TabItem Header="Script">
+                    <DataGrid x:Name="dg_Step" 
+                              ItemsSource="{Binding }" 
+                              AutoGenerateColumns="False"  
+                              
+                              CanUserAddRows="False">
+                        <DataGrid.Resources>
+                         
+
+                        </DataGrid.Resources>
+                        <DataGrid.ItemBindingGroup>
+                            <BindingGroup/>
+                        </DataGrid.ItemBindingGroup>
+                            
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Comp Id" IsReadOnly="True" Binding="{Binding compid}" Width="4*"/>
+                            <DataGridTextColumn Header="Comp Type" IsReadOnly="True" Binding="{Binding id}" Width="*"/>
+                            <DataGridTextColumn Header="Action Name" IsReadOnly="True" Binding="{Binding action}" Width="*"/>
+                         </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+
+            </TabControl.Items>
+        </TabControl>
+
+    </Grid>
+</mah:MetroWindow>
